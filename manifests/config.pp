@@ -57,13 +57,13 @@ class auditd::config(
   concat::fragment{ 'auditd_rules_begin':
     target  => $rules_file,
     content => template('auditd/audit.rules.begin.fragment.erb'),
-    order   => '01'
+    order   => '001'
   }
 
   concat::fragment{ 'auditd_rules_end':
     target  => $rules_file,
     content => template('auditd/audit.rules.end.fragment.erb'),
-    order   => '99'
+    order   => '999'
   }
 
   file { '/etc/audit/auditd.conf':
